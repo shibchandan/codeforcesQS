@@ -1,62 +1,28 @@
-// #include <bits/stdc++.h>
-// using namespace std;
-
-// int main(){
-//     int k;
-//     cin >> k;
-
-//     if(k == 0){
-//         cout << 0 << endl;
-//         return 0;
-//     }
-
-//     int a[12];
-//     for(int i = 0; i < 12; i++){
-//         cin >> a[i];
-//     }
-
-//     sort(a, a + 12, greater<int>());
-
-//     int val = 0;
-//     for(int i = 0; i < 12; i++){
-//         val += a[i];
-//         if(val >= k){
-//             cout << i + 1 << endl;
-//             return 0;
-//         }
-//     }
-
-//     cout << -1 << endl;
-// }
-
-#include <bits/stdc++.h>
+#include<bits/stdc++.h>
 using namespace std;
 
-int main() {
-    int k;
-    cin >> k;
+int main(){
+    int t;
+    cin>>t;
+    while(t--){
+        long long a,b,c;
+        cin>>a>>b>>c;
 
-    int a[12];
-    for(int i = 0; i < 12; i++) {
-        cin >> a[i];
-    }
+        bool ok=false;
 
-    if(k == 0) {
-        cout << 0 << endl;
-        return 0;
-    }
+        long long a1=2*b-c;
+        if(a1>0 && a1%a==0) ok=true;
 
-    sort(a, a + 12);
-
-    int cnt = 0;
-    for(int i = 11; i >= 0; i--) {
-        k -= a[i];
-        cnt++;
-        if(k <= 0) {
-            cout << cnt << endl;
-            return 0;
+        long long sum=a+c;
+        if(sum%2==0){
+            long long b1=sum/2;
+            if(b1%b==0) ok=true;
         }
-    }
 
-    cout << -1 << endl;
+        long long c1=2*b-a;
+        if(c1>0 && c1%c==0) ok=true;
+
+        if(ok) cout<<"YES\n";
+        else cout<<"NO\n";
+    }
 }
